@@ -9,21 +9,25 @@
 <meta property="og:url" content="https://spellmatesgame.games/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
 </head><body>
-<div class="wrap">
-  <nav class="nav"><div class="brand"><img src="favicon.svg" alt="logo"><b>Spellmates</b></div>
+<div class="nav-wrap"><div class="wrap">
+  <nav class="nav"><div class="brand"><img src="favicon.svg" alt=""><b>Spellmates</b></div>
     <div class="menu"><a href="#story">Story</a><a href="#features">Features</a><a href="#gallery">Gallery</a><a href="#updates">Updates</a></div>
   </nav>
-  <section class="hero"><img src="assets/images/hero.jpg" alt="Spellmates hero art"><div class="overlay"></div>
+</div></div>
+
+<div class="wrap">
+  <section class="hero"><img src="assets/images/hero.jpg" alt="Hero art"><div class="overlay"></div>
     <div class="copy"><h1>Lose a job, gain a grimoire.</h1><p class="tag">Move in with your childhood crush and her roommates. Learn small spells. Change your fate.</p>
-      <div class="cta"><a class="button" href="mailto:hello@spellmatesgame.games?subject=Spellmates%20Updates">Get updates</a>
-      <a class="button ghost" href="#" aria-disabled="true">Wishlist (soon)</a></div>
+      <div class="cta"><a class="button" href="mailto:hello@spellmatesgame.games?subject=Spellmates%20Updates">Get updates</a><a class="button ghost" href="#" aria-disabled="true">Wishlist (soon)</a></div>
     </div>
   </section>
+
   <section id="features" class="grid">
     <article class="card"><img src="assets/images/roommates.jpg" alt="Roommates"><div class="pad"><h3>Roommate Routes</h3><p>Five distinct arcs. Choices and timing matter—no one‑size‑fits‑all dialog.</p></div></article>
     <article class="card"><img src="assets/images/magic.jpg" alt="Magic"><div class="pad"><h3>Runecraft System</h3><p>Unlock cantrips from a found grimoire; bend small rules to open new paths.</p></div></article>
     <article class="card"><img src="assets/images/town.jpg" alt="Town"><div class="pad"><h3>Free‑Roam Town</h3><p>Explore the house and neighborhood on your schedule. Side gigs, secrets, and favors.</p></div></article>
   </section>
+
   <section id="gallery"><h3>Gallery</h3>
     <div class="gallery">
       <img src="assets/images/roommates.jpg" alt="Roommates">
@@ -32,11 +36,54 @@
       <img src="assets/images/hero.jpg" alt="Hero">
     </div>
   </section>
+
+  <section class="newsletter" aria-labelledby="signup">
+    <h3 id="signup">Get notified when the demo drops</h3>
+    <p class="tag">No spam—just big milestones. Unsubscribe anytime.</p>
+    <form id="nl" class="form" method="post">
+      <input id="email" name="email" type="email" placeholder="you@example.com" required aria-label="Email address">
+      <button class="button" type="submit">Notify me</button>
+    </form>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    <small>Uses Formspree/EmailJS or your own endpoint. See README to connect.</small>
+  </section>
+
   <section id="updates" class="grid" style="margin-top:22px">
     <article class="card"><div class="pad"><h3>Devlog 01</h3><p>Prologue draft + free‑roam hub scaffold. Phone & map UI in progress.</p></div></article>
     <article class="card"><div class="pad"><h3>Devlog 02</h3><p>First runecraft menu pass and save‑persistent UI widgets.</p></div></article>
   </section>
+
   <footer class="foot"><p>© <span id="year"></span> Spellmates. All rights reserved.</p></footer>
 </div>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+// WWW → apex redirect (client-side safety; DNS/GitHub handles most cases)
+(function(){
+  var host = window.location.host;
+  if (host === 'www.spellmatesgame.games') {
+    var url = 'https://spellmatesgame.games' + window.location.pathname + window.location.search + window.location.hash;
+    window.location.replace(url);
+  }
+})();
+// Year stamp
+document.getElementById('year').textContent = new Date().getFullYear();
+// Newsletter (Formspree-ready). Replace FORM_ENDPOINT with your own.
+const FORM_ENDPOINT = 'https://formspree.io/f/your_id_here'; // ← replace later
+const form = document.getElementById('nl'); const msg = document.getElementById('msg');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  if(!email){ return; }
+  msg.textContent = 'Sending…';
+  try{
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    if(res.ok){ msg.textContent = 'Thanks! You are on the list.'; form.reset(); }
+    else{ msg.textContent = 'Hmm, there was a problem. Try again in a minute.'; }
+  }catch(err){ msg.textContent = 'Network error. Please try again later.'; }
+});
+</script>
 </body></html>
