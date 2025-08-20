@@ -1,59 +1,42 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spellmates — Coming Soon</title>
-  <meta name="description" content="Spellmates — a free-roam urban-fantasy visual novel: lose a job, gain a grimoire. Wishlist and updates coming soon.">
-  <meta property="og:title" content="Spellmates — Coming Soon">
-  <meta property="og:description" content="Urban-fantasy roommates + secret magic. Follow for updates.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="og-image.png">
-  <meta property="og:url" content="https://spellmatesgame.game/">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <main class="wrap">
-    <header class="brand">
-      <img src="favicon.svg" alt="" class="logo">
-      <h1>Spellmates</h1>
-      <p class="tag">Lose a job, gain a grimoire.</p>
-    </header>
-
-    <section class="card">
-      <h2>Coming Soon</h2>
-      <p>
-        An open‑world visual novel about starting over, moving in with your childhood crush and her roommates, and discovering an old book of magic.
-      </p>
-      <div class="cta">
-        <a class="button" href="mailto:hello@spellmatesgame.game?subject=Spellmates%20Updates">Get updates</a>
-        <a class="button ghost" href="#" aria-disabled="true" title="Itch/Steam link coming soon">Wishlist (soon)</a>
-      </div>
-    </section>
-
-    <section class="grid">
-      <div class="feature">
-        <h3>Free‑Roam VN</h3>
-        <p>Explore the house and town on your schedule. Side jobs, side quests, and secrets.</p>
-      </div>
-      <div class="feature">
-        <h3>Runecraft System</h3>
-        <p>Learn spells from a found grimoire and bend small rules of the world.</p>
-      </div>
-      <div class="feature">
-        <h3>Relationship Routes</h3>
-        <p>Five roommates, distinct arcs. Choices matter—no “one line fits all.”</p>
-      </div>
-    </section>
-
-    <footer class="foot">
-      <p>© <span id="year"></span> Spellmates. All rights reserved.</p>
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spellmates — Open‑World Visual Novel</title>
+<meta name="description" content="An open‑world urban‑fantasy VN about starting over, roommates, and a found grimoire.">
+<meta property="og:title" content="Spellmates — Coming Soon">
+<meta property="og:description" content="Urban‑fantasy roommates + secret magic.">
+<meta property="og:image" content="og-image.png"><meta property="og:type" content="website">
+<meta property="og:url" content="https://spellmatesgame.games/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="wrap">
+  <nav class="nav"><div class="brand"><img src="favicon.svg" alt="logo"><b>Spellmates</b></div>
+    <div class="menu"><a href="#story">Story</a><a href="#features">Features</a><a href="#gallery">Gallery</a><a href="#updates">Updates</a></div>
+  </nav>
+  <section class="hero"><img src="assets/images/hero.jpg" alt="Spellmates hero art"><div class="overlay"></div>
+    <div class="copy"><h1>Lose a job, gain a grimoire.</h1><p class="tag">Move in with your childhood crush and her roommates. Learn small spells. Change your fate.</p>
+      <div class="cta"><a class="button" href="mailto:hello@spellmatesgame.games?subject=Spellmates%20Updates">Get updates</a>
+      <a class="button ghost" href="#" aria-disabled="true">Wishlist (soon)</a></div>
+    </div>
+  </section>
+  <section id="features" class="grid">
+    <article class="card"><img src="assets/images/roommates.jpg" alt="Roommates"><div class="pad"><h3>Roommate Routes</h3><p>Five distinct arcs. Choices and timing matter—no one‑size‑fits‑all dialog.</p></div></article>
+    <article class="card"><img src="assets/images/magic.jpg" alt="Magic"><div class="pad"><h3>Runecraft System</h3><p>Unlock cantrips from a found grimoire; bend small rules to open new paths.</p></div></article>
+    <article class="card"><img src="assets/images/town.jpg" alt="Town"><div class="pad"><h3>Free‑Roam Town</h3><p>Explore the house and neighborhood on your schedule. Side gigs, secrets, and favors.</p></div></article>
+  </section>
+  <section id="gallery"><h3>Gallery</h3>
+    <div class="gallery">
+      <img src="assets/images/roommates.jpg" alt="Roommates">
+      <img src="assets/images/magic.jpg" alt="Magic">
+      <img src="assets/images/town.jpg" alt="Town">
+      <img src="assets/images/hero.jpg" alt="Hero">
+    </div>
+  </section>
+  <section id="updates" class="grid" style="margin-top:22px">
+    <article class="card"><div class="pad"><h3>Devlog 01</h3><p>Prologue draft + free‑roam hub scaffold. Phone & map UI in progress.</p></div></article>
+    <article class="card"><div class="pad"><h3>Devlog 02</h3><p>First runecraft menu pass and save‑persistent UI widgets.</p></div></article>
+  </section>
+  <footer class="foot"><p>© <span id="year"></span> Spellmates. All rights reserved.</p></footer>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body></html>
